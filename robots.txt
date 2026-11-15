@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://martinjordi119-tech.github.io/radar-vice-city/sitemap.xml
