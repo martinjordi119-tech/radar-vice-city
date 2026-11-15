@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RADAR VICE CITY | Todo sobre GTA 6</title>
+
+<meta name="description" content="Tu radar definitivo de GTA 6. Noticias, secretos, vehículos, mapas, trucos y guías de Vice City.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080b14;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: linear-gradient(120deg,#111b32,#30134c,#102c39);
+    padding: 35px 20px;
+    text-align: center;
+    border-bottom: 2px solid #ff3eae;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: 900;
+    color: #ff54bc;
+    letter-spacing: 3px;
+}
+
+header p {
+    color: #c5c5d5;
+    margin-top: 12px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 18px;
+    background: #111625;
+    border-bottom: 1px solid #30384d;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff54bc;
+}
+
+.hero {
+    padding: 75px 20px;
+    text-align: center;
+    background:
+    radial-gradient(circle at center,#392052 0%,#11182c 50%,#080b14 100%);
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.hero span {
+    color: #ff54bc;
+}
+
+.hero p {
+    color: #c5c5d5;
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 25px;
+    background: #ff42aa;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h2 {
+    color: #ff54bc;
+    margin-bottom: 25px;
+    font-size: 27px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #141b2b;
+    border: 1px solid #30384d;
+    border-radius: 10px;
+    padding: 24px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #ff54bc;
+}
+
+.card h3 {
+    margin: 12px 0;
+    color: white;
+}
+
+.card p {
+    color: #b7bfd0;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.tag {
+    display: inline-block;
+    background: #25334d;
+    color: #63e6be;
+    padding: 5px 9px;
+    font-size: 11px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.tag.rumor {
+    color: #ffc857;
+}
+
+.search {
+    width: 100%;
+    padding: 15px;
+    border-radius: 7px;
+    border: 1px solid #444c63;
+    background: #141b2b;
+    color: white;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.newsletter {
+    text-align: center;
+    background: linear-gradient(120deg,#261638,#142b40);
+    padding: 45px 20px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.newsletter p {
+    color: #c5c5d5;
+    margin-top: 12px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #8992a6;
+    font-size: 13px;
+    border-top: 1px solid #30384d;
+    margin-top: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media(max-width:600px) {
+    .logo {
+        font-size: 25px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">RADAR VICE CITY</div>
+    <p>Tu centro de inteligencia sobre GTA VI</p>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#guias">Guías</a>
+    <a href="#vehiculos">Vehículos</a>
+    <a href="#secretos">Secretos</a>
+    <a href="#noticias">Noticias</a>
+</nav>
+
+<section class="hero" id="inicio">
+    <h1>BIENVENIDO A <span>VICE CITY</span></h1>
+
+    <p>
+        Descubre todo lo que necesitas saber sobre Grand Theft Auto VI.
+        Guías, vehículos, secretos, novedades y estrategias
+        para dominar el universo GTA.
+    </p>
+
+    <a href="#guias" class="button">EXPLORAR RADAR</a>
+</section>
+
+<section class="container" id="guias">
+
+    <h2>🎯 GUÍAS Y ESTRATEGIAS</h2>
+
+    <input
+        type="text"
+        class="search"
+        id="search"
+        placeholder="Buscar guías, vehículos, secretos..."
+        oninput="buscar()"
+    >
+
+    <div class="grid" id="articles">
+
+        <article class="card">
+            <span class="tag">GUÍA</span>
+            <h3>Cómo ganar dinero en GTA VI</h3>
+            <p>
+                Estrategias y oportunidades para conseguir dinero
+                dentro del universo de GTA VI.
+            </p>
+        </article>
+
+        <article class="card">
+            <span class="tag">GUÍA</span>
+            <h3>Guía para principiantes</h3>
+            <p>
+                Todo lo que necesitas conocer antes de comenzar
+                tu aventura en Vice City.
+            </p>
+        </article>
+
+        <article class="card">
+            <span class="tag">VEHÍCULOS</span>
+            <h3>Los mejores coches</h3>
+            <p>
+                Descubre los vehículos conocidos y
