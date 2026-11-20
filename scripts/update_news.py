@@ -39,8 +39,22 @@ for source, url in FEEDS:
     except Exception as exc:
         print(f"No se pudo leer {source}: {exc}")
 items.sort(key=lambda x: x.get("date") or "", reverse=True)
-payload = {"updated": datetime.now(timezone.utc).isoformat(), "items": items[:30]}
 out = Path("data/news.json")
 out.parent.mkdir(parents=True, exist_ok=True)
-out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-print(f"Guardadas {len(payload['items'])} noticias.")
+if items:
+    payload = {"updated": datetime.now(timezone.utc).isoformat(), "items": items[:30]}
+    out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Guardadas {len(payload['items'])} noticias nuevas.")
+else:
+    # No borrar el último feed válido si el proveedor RSS falla o devuelve 0 resultados.
+    try:
+        previous = json.loads(out.read_text(encoding="utf-8"))
+        previous_items = previous.get("items", [])
+    except (OSError, json.JSONDecodeError):
+        previous_items = []
+    if previous_items:
+        print(f"RSS sin resultados: se conservan {len(previous_items)} noticias anteriores.")
+    else:
+        payload = {"updated": None, "items": [], "status": "feed_temporarily_unavailable"}
+        out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print("RSS sin resultados y no hay noticias anteriores que conservar.")
